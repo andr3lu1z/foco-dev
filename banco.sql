@@ -1,0 +1,6 @@
+CREATE TABLE metas (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(255) NOT NULL,
+    status VARCHAR(50) DEFAULT 'Pendente',
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

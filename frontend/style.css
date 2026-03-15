@@ -1,0 +1,95 @@
+:root {
+    --cor-fundo: #f4f7f6;
+    --cor-primaria: #2c3e50;
+    --cor-destaque: #27ae60;
+    --cor-texto: #333;
+    --cor-branco: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--cor-primaria);
+    margin-bottom: 5px;
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+}
+
+.card-formulario {
+    background-color: var(--cor-branco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#form-metas {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #219653;
+}
+
+.area-metas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.area-metas li {
+    background-color: var(--cor-branco);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--cor-primaria);
+}
+
+.status-badge {
+    background-color: #f1c40f;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
