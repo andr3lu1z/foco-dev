@@ -44,6 +44,47 @@ app.get('/metas', async (requisicao, resposta) => {
     }
 });
 
+// Rota 3: Marca a meta como concluída sem apagar o histórico (PUT)
+app.put('/metas/:id', async (requisicao, resposta) => {
+    try {
+        const { id } = requisicao.params;
+
+        // Atualiza apenas o status, preservando todos os outros dados da meta
+        const sql = 'UPDATE metas SET status = $1 WHERE id = $2 RETURNING *';
+        const metaAtualizada = await bancoDeDados.query(sql, ['Concluída', id]);
+
+        if (metaAtualizada.rowCount === 0) {
+            return resposta.status(404).json({ mensagem: 'Meta não encontrada' });
+        }
+
+        resposta.json(metaAtualizada.rows[0]);
+    } catch (erro) {
+        console.error("Erro no banco:", erro);
+        resposta.status(500).json({ mensagem: 'Erro ao atualizar a meta' });
+    }
+});
+
+// Rota 4: Remove fisicamente o registro do banco (DELETE)
+app.delete('/metas/:id', async (requisicao, resposta) => {
+    try {
+        const { id } = requisicao.params;
+
+        // Exclusão permanente — sem soft delete, conforme requisito
+        const sql = 'DELETE FROM metas WHERE id = $1';
+        const resultado = await bancoDeDados.query(sql, [id]);
+
+        if (resultado.rowCount === 0) {
+            return resposta.status(404).json({ mensagem: 'Meta não encontrada' });
+        }
+
+        // 204 No Content: sucesso sem corpo de resposta
+        resposta.status(204).send();
+    } catch (erro) {
+        console.error("Erro no banco:", erro);
+        resposta.status(500).json({ mensagem: 'Erro ao excluir a meta' });
+    }
+});
+
 // Liga o servidor na porta 3000
 app.listen(3000, () => {
     console.log('🚀 Servidor rodando perfeitamente na porta 3000!');
