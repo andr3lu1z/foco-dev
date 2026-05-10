@@ -12,6 +12,14 @@ async function carregarMetas() {
     const resposta = await fetch(urlBackend);
     const metas = await resposta.json();
 
+    const total = metas.length;
+    const concluidas = metas.filter((m) => m.status === "Concluída").length;
+    const pendentes = metas.filter((m) => m.status === "Pendente").length;
+
+    document.getElementById("stat-total").textContent = total;
+    document.getElementById("stat-concluidas").textContent = concluidas;
+    document.getElementById("stat-pendentes").textContent = pendentes;
+
     listaMetas.innerHTML = "";
 
     // Percorre cada meta recebida do banco e cria um item na lista

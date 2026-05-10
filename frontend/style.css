@@ -68,6 +68,56 @@ button:hover {
     background-color: #219653;
 }
 
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    background-color: var(--cor-branco);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border-top: 4px solid var(--cor-primaria);
+}
+
+.dashboard-card--concluidas {
+    border-top-color: var(--cor-destaque);
+}
+
+.dashboard-card--pendentes {
+    border-top-color: #f1c40f;
+}
+
+.dashboard-card__valor {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+.dashboard-card--concluidas .dashboard-card__valor {
+    color: var(--cor-destaque);
+}
+
+.dashboard-card--pendentes .dashboard-card__valor {
+    color: #b8940a;
+}
+
+.dashboard-card__rotulo {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .area-metas ul {
     list-style: none;
     padding: 0;
