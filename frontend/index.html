@@ -11,12 +11,23 @@
         <h1>🎯 Foco-Dev</h1>
         <p>Seu rastreador de hábitos e estudos para manter o foco.</p>
     </header>
-    
+
     <main>
         <section class="card-formulario">
             <form id="form-metas">
                 <input type="text" id="input-nova-meta" placeholder="Qual a sua meta de hoje?" required>
+                <select id="select-categoria">
+                    <option value="">Sem categoria</option>
+                </select>
                 <button type="submit">Salvar Meta</button>
+            </form>
+        </section>
+
+        <section class="card-formulario">
+            <form id="form-categoria">
+                <input type="text" id="input-nova-categoria" placeholder="Criar nova categoria..." required>
+                <input type="color" id="input-cor-categoria" value="#6B7280" title="Escolha a cor da categoria">
+                <button type="submit">Criar Categoria</button>
             </form>
         </section>
 
@@ -37,8 +48,14 @@
 
         <section class="area-metas">
             <h2>Trilhas Recentes</h2>
+            <div class="barra-filtro">
+                <label for="filtro-categoria">Filtrar por categoria:</label>
+                <select id="filtro-categoria">
+                    <option value="todas">Todas</option>
+                </select>
+            </div>
             <ul id="lista-metas">
-                </ul>
+            </ul>
         </section>
     </main>
 
